@@ -1,0 +1,5 @@
+[
+    {"id": 1, "first_name": "Joe", "last_name": "Schmo", "address_1": "123 Burbank Blvd.", "address_2": "", "city": "Cambria", "state": "CA", "zip": "93428", "phone": "(805) 410-1111", "email": "p@j.com"},
+    {"id": 2, "first_name": "Jane", "last_name": "Doe", "address_1": "456 Woodley Ave.", "address_2": "Suite 201", "city": "Northridge", "state": "CO", "zip": "91362", "phone": "(310) 922-2222", "email": "q@a.com"},
+    {"id": 3, "first_name": "Don", "last_name": "Henley", "address_1": "789 Green Lea Place", "address_2": "Apt. 2", "city": "Thousand Oaks", "state": "FL", "zip": "91361", "phone": "(818) 360-9999", "email": "r@t.com"}
+]
