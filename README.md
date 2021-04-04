@@ -44,7 +44,7 @@ With the app running, you can check things out on the command line using curl (o
     }]
 
 ### Create a New Address:
-    $ curl -X POST localhost:9000/api/address/new -d "{\"firstName\": \"George\", \"lastName\": \"Washington\", \"email\": \"bla@bla.com\", \"phone\": \"(999) 999-9999\",\"address\": \"16 Pennsylvania Ave\",\"address2\": \"Apt 2\",\"city\": \"Washington\",\"state\": \"D.C\",\"zipcode\": \"99999\"}" -H "Content-Type:application/json"
+    $ curl -X POST localhost:9000/api/address/new -d "{\"address\":{\"first_name\": \"George\", \"last_name\": \"Washington\", \"email\": \"bla@bla.com\", \"phone\": \"(999) 999-9999\",\"address_1\": \"16 Pennsylvania Ave\",\"address_2\": \"Apt 2\",\"city\": \"Washington\",\"state\": \"D.C\",\"zipcode\": \"99999\"}}" -H "Content-Type:application/json"
     {
         "id":2,
         "firstName":"George",
