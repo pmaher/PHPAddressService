@@ -19,6 +19,24 @@
                 echo json_encode($address, JSON_PRETTY_PRINT);
             }
             break;
+        case 'DELETE':
+            $body = file_get_contents('php://input');
+            $bodyArray = json_decode($body, JSON_PRETTY_PRINT);
+
+            if(is_null($bodyArray['addressId'])) {
+                $error = array('error'=>'Address id not found.');
+                echo json_encode($error, JSON_PRETTY_PRINT);
+            } else {
+                $address = getAddressById($bodyArray['addressId']);
+                if(is_null($address)) {
+                    $error = array('error'=>'Address with id ' . strval($bodyArray['addressId']) . ' not found.');
+                    echo json_encode($error, JSON_PRETTY_PRINT);
+                } else {
+                    removeAddressById($bodyArray['addressId']);
+                    echo json_encode($donationRequest, JSON_PRETTY_PRINT);
+                }
+            }
+            break;
         case 'GET':
             initializeAddressesIfNotSet();
             echo json_encode($_SESSION['addresses'], JSON_PRETTY_PRINT);
@@ -26,6 +44,25 @@
         default:
             $error = array('error'=>'Operation not supported.');
             echo json_encode($error, JSON_PRETTY_PRINT);
+    }
+
+    function removeAddressById($id) {
+        //need to use 'use' here since $id is not accessible inside the array_filter method
+        $newArray = array_filter($_SESSION['addresses'], function($value, $key) use ($id) {
+            return $value['id'] != intval($id);
+        }, ARRAY_FILTER_USE_BOTH);
+        //we need to re-index the array, as the keys might be off now that we removed one - so it can be properly printed in the response
+        $_SESSION['addresses'] = array_values($newArray);
+    }
+
+    function getAddressById($id) {
+
+        foreach ($_SESSION['addresses'] as &$address) {
+            if($address['id'] == $id) {
+                return $address;
+            }
+        }
+        return null;
     }
 
     function initializeAddressesIfNotSet() {
