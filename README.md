@@ -17,12 +17,12 @@ With the app running, you can check things out on the command line using curl (o
     $ curl localhost:9000/api/address/view/?id=1
     {
         "id":1,
-        "firstName":"firstName",
-        "lastName":"lastName",
+        "first_name":"firstName",
+        "last_name":"lastName",
         "email":"email@email.com",
         "phone":"999-999-9999",
-        "address":"address",
-        "address2":"address2",
+        "address_1":"address",
+        "address_2":"address2",
         "city":"city",
         "state":"CA",
         "zipcode":"91361"
@@ -32,12 +32,12 @@ With the app running, you can check things out on the command line using curl (o
     $ curl localhost:9000/api/address/list
     [{
         "id" : 1,
-        "firstName" : "firstName",
-        "lastName" : "lastName",
+        "first_name" : "firstName",
+        "last_name" : "lastName",
         "email" : "email@email.com",
         "phone" : "999-999-9999",
-        "address" : "address",
-        "address2" : "address2",
+        "address_1" : "address",
+        "address_2" : "address2",
         "city" : "city",
         "state" : "CA",
         "zipcode" : "91361"
@@ -47,12 +47,12 @@ With the app running, you can check things out on the command line using curl (o
     $ curl -X POST localhost:9000/api/address/new -d "{\"address\":{\"first_name\": \"George\", \"last_name\": \"Washington\", \"email\": \"bla@bla.com\", \"phone\": \"(999) 999-9999\",\"address_1\": \"16 Pennsylvania Ave\",\"address_2\": \"Apt 2\",\"city\": \"Washington\",\"state\": \"D.C\",\"zipcode\": \"99999\"}}" -H "Content-Type:application/json"
     {
         "id":2,
-        "firstName":"George",
-        "lastName":"Washington",
+        "first_name":"George",
+        "last_name":"Washington",
         "email":"bla@bla.com",
         "phone":"(999) 999-9999",
-        "address":"16 Pennsylvania Ave",
-        "address2":"Apt 2",
+        "address_1":"16 Pennsylvania Ave",
+        "address_2":"Apt 2",
         "city":"Washington",
         "state":"D.C",
         "zipcode":"99999"
@@ -62,12 +62,12 @@ With the app running, you can check things out on the command line using curl (o
     $ curl -X POST localhost:9000/api/address/update -d "{\"id\": \"1\", \"firstName\": \"Denzel\", \"lastName\": \"Washington\", \"email\": \"bla@bla.com\", \"phone\": \"(999) 999-9999\",\"address\": \"16 Pennsylvania Ave\",\"address2\": \"Apt 2\",\"city\": \"Washington\",\"state\": \"D.C\",\"zipcode\": \"99999\"}" -H "Content-Type:application/json"
     {
         "id":1,
-        "firstName":"Denzel",
-        "lastName":"Washington",
+        "first_name":"Denzel",
+        "last_name":"Washington",
         "email":"bla@bla.com",
         "phone":"(999) 999-9999",
-        "address":"16 Pennsylvania Ave",
-        "address2":"Apt 2",
+        "address_1":"16 Pennsylvania Ave",
+        "address_2":"Apt 2",
         "city":"Washington",
         "state":"D.C",
         "zipcode":"99999"
