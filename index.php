@@ -1,12 +1,21 @@
 <?php
 
     session_start();
-    header('Content-Type: application/json');
+    //header('Content-Type: application/json');
     
     switch($_SERVER['REQUEST_METHOD']) {
         case 'POST':
             //$_POST will not be set when the content-type is JSON, so we need to set it
             $_POST = json_decode(file_get_contents("php://input"), true);
+
+            // $json = '{
+            //     "title": "PHP",
+            //     "site": "GeeksforGeeks"
+            // }';
+            // $data = json_decode($json);
+            // echo '<pre>'; print_r($data);
+
+            // break;
             if(empty($_POST['address'])) {
                 $error = array('error'=>'Operation requires an address.');
                 echo json_encode($error, JSON_PRETTY_PRINT);
