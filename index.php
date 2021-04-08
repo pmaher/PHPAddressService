@@ -1,7 +1,7 @@
 <?php
 
     session_start();
-    //header('Content-Type: application/json');
+    header('Content-Type: application/json');
     
     switch($_SERVER['REQUEST_METHOD']) {
         case 'POST':
