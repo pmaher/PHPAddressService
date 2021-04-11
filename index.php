@@ -31,12 +31,15 @@
         case 'DELETE':
             $body = file_get_contents('php://input');
             $bodyArray = json_decode($body, JSON_PRETTY_PRINT);
-
             if(is_null($bodyArray['addressId'])) {
                 $error = array('error'=>'Address id not found.');
                 echo json_encode($error, JSON_PRETTY_PRINT);
             } else {
+
+                
                 $address = getAddressById($bodyArray['addressId']);
+                echo $bodyArray['addressId'];
+                break;
                 if(is_null($address)) {
                     $error = array('error'=>'Address with id ' . strval($bodyArray['addressId']) . ' not found.');
                     echo json_encode($error, JSON_PRETTY_PRINT);
@@ -45,6 +48,10 @@
                     echo json_encode($donationRequest, JSON_PRETTY_PRINT);
                 }
             }
+            break;
+        case 'PUT':
+            $error = array('error'=>'Not yet implemented.');
+            echo json_encode($error, JSON_PRETTY_PRINT);
             break;
         case 'GET':
             initializeAddressesIfNotSet();
@@ -65,7 +72,7 @@
     }
 
     function getAddressById($id) {
-
+        echo $id;
         foreach ($_SESSION['addresses'] as &$address) {
             if($address['id'] == $id) {
                 return $address;

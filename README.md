@@ -29,7 +29,7 @@ With the app running, you can check things out on the command line using curl (o
     }
 
 ### List all Addresses:
-    $ curl localhost:9000/api/address/list
+    $ curl localhost:9000
     [{
         "id" : 1,
         "first_name" : "firstName",
@@ -44,7 +44,7 @@ With the app running, you can check things out on the command line using curl (o
     }]
 
 ### Create a New Address:
-    $ curl -X POST localhost:9000/api/address/new -d "{\"address\":{\"first_name\": \"George\", \"last_name\": \"Washington\", \"email\": \"bla@bla.com\", \"phone\": \"(999) 999-9999\",\"address_1\": \"16 Pennsylvania Ave\",\"address_2\": \"Apt 2\",\"city\": \"Washington\",\"state\": \"D.C\",\"zipcode\": \"99999\"}}" -H "Content-Type:application/json"
+    $ curl -X POST localhost:9000 -d "{\"address\":{\"first_name\": \"George\", \"last_name\": \"Washington\", \"email\": \"bla@bla.com\", \"phone\": \"(999) 999-9999\",\"address_1\": \"16 Pennsylvania Ave\",\"address_2\": \"Apt 2\",\"city\": \"Washington\",\"state\": \"D.C\",\"zipcode\": \"99999\"}}" -H "Content-Type:application/json"
     {
         "id":2,
         "first_name":"George",
@@ -74,7 +74,7 @@ With the app running, you can check things out on the command line using curl (o
     }
 
 ### Delete an Existing Address:
-    $ curl -X POST localhost:9000/api/address/delete/2
+    $ curl -X DELETE localhost:9000 -d "{\"addressId\": 3}"
     { 
         "message" : "success"
     }
