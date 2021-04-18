@@ -45,6 +45,7 @@
                 }
             }
             break;
+        case 'PATCH':
         case 'PUT':
             $_POST = json_decode(file_get_contents("php://input"), true);
 
